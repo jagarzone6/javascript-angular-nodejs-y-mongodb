@@ -1,0 +1,19 @@
+{
+  "name": "javascript-angular-nodejs-y-mongodb",
+  "version": "1.0.0",
+  "description": "proyecto de api rest con nodejs para el curso",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jagarzone6/javascript-angular-nodejs-y-mongodb.git"
+  },
+  "author": "JAGE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jagarzone6/javascript-angular-nodejs-y-mongodb/issues"
+  },
+  "homepage": "https://github.com/jagarzone6/javascript-angular-nodejs-y-mongodb#readme"
+}
