@@ -9,7 +9,7 @@ var md_auth = require('../middleware/authenticated');
 
 var multipart = require('connect-multiparty');
 
-var md_upload = multipart({ uploadDir: './uploads/users'})
+var md_upload = multipart({ uploadDir: './uploads/users'});
 
 api.get('/probando-controlador',md_auth.ensureAuth,UserController.pruebas );
 

@@ -21,4 +21,7 @@ api.put('/updateArtist/:id',md_auth.ensureAuth,ArtistController.updateArtist );
 
 api.delete('/deleteArtist/:id',md_auth.ensureAuth,ArtistController.deleteArtist );
 
+api.post('/uploadImageArtist/:id', [md_auth.ensureAuth,md_upload] ,ArtistController.uploadImage );
+
+
 module.exports = api;
