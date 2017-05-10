@@ -4,6 +4,7 @@
   "description": "proyecto de api rest con nodejs para el curso",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
