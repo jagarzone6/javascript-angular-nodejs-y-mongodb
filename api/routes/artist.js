@@ -23,5 +23,6 @@ api.delete('/deleteArtist/:id',md_auth.ensureAuth,ArtistController.deleteArtist 
 
 api.post('/uploadImageArtist/:id', [md_auth.ensureAuth,md_upload] ,ArtistController.uploadImage );
 
+api.get('/getImageArtist/:imageFile', ArtistController.getImageFile );
 
 module.exports = api;
