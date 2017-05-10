@@ -183,7 +183,7 @@ function deleteArtist (req,res) {
 
 function uploadImage(req,res){
     var artistID = req.params.id;
-    var file_name = 'No subido ...';
+    var file_name = 'No ha subido ...';
 
     if(req.files){
 
@@ -206,7 +206,7 @@ function uploadImage(req,res){
 
                 if(!artistUpdated){
 
-                    res.status(404).send({message: 'No se ha podido actualizar el usuario'});
+                    res.status(404).send({message: 'No se ha podido actualizar el Artist'});
 
                 }else {
 
@@ -232,7 +232,7 @@ function getImageFile(req,res){
         if(exists){
             res.sendFile(path.resolve(path_file));
         }else {
-            res.status(200).send({message: 'No existe la imagen'});
+            res.status(404).send({message: 'No existe la imagen'});
         }
     });
 }
