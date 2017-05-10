@@ -24,6 +24,29 @@ function saveUser (req,res) {
 
     if(params.password){
         //Encriptar y guardar dato
+        bcrypt.hash(params.password,null,null,function (err,hash) {
+           user.password = hash;
+           if(user.name != null && user.name != null && user.name != null){
+               //Guardar el usuario
+               user.save((err,userStored) => {
+                 if(err){
+                     res.status(500).send({message: 'Error al guardar el usuario'});
+                 }  else{
+                     if(!userStored){
+                         res.status(404).send({message: 'No se ha registrado el usuario'});
+                     } else{
+                         res.status(200).send({user: userStored});
+
+                       }
+
+                   }
+               });
+
+           }else{
+               //
+               res.status(200).send({message: 'Introduce todos los campos obligatorios'});
+           }
+        });
 
 
     } else {
