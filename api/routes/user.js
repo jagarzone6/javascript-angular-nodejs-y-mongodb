@@ -21,4 +21,6 @@ api.put('/updateUser/:id', md_auth.ensureAuth ,UserController.updateUser );
 
 api.post('/uploadImageUser/:id', [md_auth.ensureAuth,md_upload] ,UserController.uploadImage );
 
+api.get('/getImageUser/:imageFile', UserController.getImageFile );
+
 module.exports = api;
