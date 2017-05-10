@@ -74,6 +74,8 @@ function saveAlbum (req,res) {
     album.description = params.description;
     album.year = params.year;
     album.image = 'null';
+    album.artist = params.artist;
+
 
 
 
@@ -99,7 +101,8 @@ function saveAlbum (req,res) {
 
 module.exports = {
     getAlbum,
-    getAlbums
+    getAlbums,
+    saveAlbum
 
 
 

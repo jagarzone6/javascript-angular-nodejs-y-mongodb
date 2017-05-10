@@ -15,6 +15,8 @@ api.get('/getAlbum/:id',md_auth.ensureAuth,AlbumController.getAlbum );
 
 api.get('/getAlbums/:page?',md_auth.ensureAuth,AlbumController.getAlbums);
 
+api.post('/saveAlbum',md_auth.ensureAuth,AlbumController.saveAlbum );
+
 
 
 module.exports = api;
