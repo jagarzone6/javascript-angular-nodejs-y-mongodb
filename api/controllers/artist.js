@@ -118,13 +118,77 @@ function updateArtist (req,res) {
 
 }
 
+function deleteArtist (req,res) {
+
+    var artistId = req.params.id;
+
+    Artist.findByIdAndRemove(artistId,(err,artistDeleted) => {
+        if(err){
+
+            res.status(500).send({message: 'Error al borrar el Artista'});
+
+        }else{
+            if(!artistDeleted){
+
+                res.status(404).send({message: 'No se ha podido borrar el Artista'});
+
+            }else {
+
+                Album.find({artist: artistDeleted._id}).remove((err,albumRemoved)=>{
+
+                        if(err){
+
+                            res.status(500).send({message: 'Error al borrar el album del Artista'});
+
+                        }else {
+                            if (!albumRemoved) {
+
+                                res.status(404).send({message: 'No se ha podido borrar el album del Artista'});
+
+                            } else {
+
+                                Song.find({album: albumRemoved._id}).remove((err, songRemoved)=> {
+
+                                    if (err) {
+
+                                        res.status(500).send({message: 'Error al borrar la cancion del Album del Artista'});
+
+                                    } else {
+                                        if (!songRemoved) {
+
+                                            res.status(404).send({message: 'No se ha podido borrar la cancion del Album del Artista'});
+
+                                        } else {
+                                            //success action
+
+                                            res.status(200).send({artistDeleted: artistDeleted});
+
+                                        }
+                                    }
+
+                                });
+
+                            }
+
+
+                        }
+                });
+
+            }
+
+        }
+    });
+
+}
+
 
 
 module.exports = {
     getArtist,
     saveArtist,
     getArtists,
-    updateArtist
+    updateArtist,
+    deleteArtist
 
 
 };

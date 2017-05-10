@@ -19,4 +19,6 @@ api.get('/getArtists/:page?',md_auth.ensureAuth,ArtistController.getArtists );
 
 api.put('/updateArtist/:id',md_auth.ensureAuth,ArtistController.updateArtist );
 
+api.delete('/deleteArtist/:id',md_auth.ensureAuth,ArtistController.deleteArtist );
+
 module.exports = api;
