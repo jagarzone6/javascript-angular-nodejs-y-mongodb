@@ -145,6 +145,57 @@ function updateAlbum (req,res) {
 
 }
 
+function deleteAlbum (req,res) {
+
+    var albumId = req.params.id;
+
+    Album.findByIdAndRemove(albumId,(err,albumDeleted) => {
+        if(err){
+
+            res.status(500).send({message: 'Error al borrar el Album'});
+
+        }else{
+            if(!albumDeleted){
+
+                res.status(404).send({message: 'No se ha podido borrar el Album'});
+
+            }else {
+
+               Song.find({album: albumDeleted._id}).remove((err, songRemoved)=> {
+
+                                if (err) {
+
+                                    res.status(500).send({message: 'Error al borrar la cancion del Album del Artista'});
+
+                                } else {
+                                    if (!songRemoved) {
+
+                                        res.status(404).send({message: 'No se ha podido borrar la cancion del Album'});
+
+                                    } else {
+                                        //success action
+
+                                        res.status(200).send({albumDeleted: albumDeleted});
+
+                                    }
+                                }
+
+                            });
+
+
+
+
+
+
+
+            }
+
+        }
+    });
+
+}
+
+
 
 
 
@@ -153,7 +204,8 @@ module.exports = {
     getAlbum,
     getAlbums,
     saveAlbum,
-    updateAlbum
+    updateAlbum,
+    deleteAlbum
 
 
 

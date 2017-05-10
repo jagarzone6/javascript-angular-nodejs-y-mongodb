@@ -19,6 +19,8 @@ api.post('/saveAlbum',md_auth.ensureAuth,AlbumController.saveAlbum );
 
 api.put('/updateAlbum/:id',md_auth.ensureAuth,AlbumController.updateAlbum );
 
+api.delete('/deleteAlbum/:id',md_auth.ensureAuth,AlbumController.deleteAlbum );
+
 
 
 module.exports = api;
