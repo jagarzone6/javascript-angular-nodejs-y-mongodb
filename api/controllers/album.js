@@ -15,7 +15,7 @@ function getAlbum (req,res) {
 
     var albumId = req.params.id;
 
-    Album.findById(albumId, (err,album) => {
+    Album.findById(albumId).populate({path: 'artist'}).exec( (err,album) => {
         if(err){
             res.status(500).send({message: 'Error en el request del Album'});
         }  else{
@@ -33,6 +33,7 @@ function getAlbum (req,res) {
 
 function getAlbums (req,res) {
 
+    var artistId = req.params.artist;
     if(req.params.page){
         var page = req.params.page;
     }else{
@@ -41,24 +42,46 @@ function getAlbums (req,res) {
 
     var itemsPerPage = 5;
 
-    Album.find().sort('title').paginate(page,itemsPerPage,function(err,albums,total){
+    if(!artistId){
 
-        if(err){
-            res.status(500).send({message: 'Error al cargar los Albums !'});
-        }  else{
-            if(!albums){
-                res.status(404).send({message: 'No hay Albums !'});
-            } else{
-                res.status(200).send({albums: albums,records: total});
+        var find = Album.find().sort('title');
+        find.populate({path: 'artist'}).exec( (err, albums)=> {
+            if (err) {
+                res.status(500).send({message: 'Error al cargar los Albums !'});
+            } else {
+                if (!albums) {
+                    res.status(404).send({message: 'No hay Albums !'});
+                } else {
+                    res.status(200).send({albums: albums});
 
+
+                }
 
             }
 
-        }
+        });
 
-    });
+    }else {
+
+        var find = Album.find({artist: artistId}).sort('year');
+        find.populate({path: 'artist'}).exec( (err, albums)=> {
+
+            if (err) {
+                res.status(500).send({message: 'Error al cargar los Albums !'});
+            } else {
+                if (!albums) {
+                    res.status(404).send({message: 'No hay Albums !'});
+                } else {
+                    res.status(200).send({albums: albums});
 
 
+                }
+
+            }
+
+        });
+
+    }
 
 
 }

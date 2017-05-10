@@ -13,7 +13,7 @@ var md_upload = multipart({ uploadDir: './uploads/albums'});
 
 api.get('/getAlbum/:id',md_auth.ensureAuth,AlbumController.getAlbum );
 
-api.get('/getAlbums/:page?',md_auth.ensureAuth,AlbumController.getAlbums);
+api.get('/getAlbums/:artist?',md_auth.ensureAuth,AlbumController.getAlbums);
 
 api.post('/saveAlbum',md_auth.ensureAuth,AlbumController.saveAlbum );
 
