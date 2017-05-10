@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 
 //rutas base
 
-app.get('pruebas',function (req,res) {
-    res.status(200).send({message: 'Bienvenido al curso de javascript'})
+app.get('/pruebas',function (req,res) {
+    res.status(200).send({message: 'Bienvenido al curso de javascript'});
 });
 
 module.exports = app;
