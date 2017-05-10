@@ -138,7 +138,28 @@ function uploadImage(req,res){
 
         var file_ext = ext_split[1];
 
-        console.log(ext_split);
+        //console.log(ext_split);
+
+        if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif'){
+
+
+            User.findByIdAndUpdate(userID,{image: file_name},(err,userUpdated) =>{
+
+                if(!userUpdated){
+
+                    res.status(404).send({message: 'No se ha podido actualizar el usuario'});
+
+                }else {
+
+                    res.status(200).send({user: userUpdated});
+
+                }
+
+            });
+        }else{
+            res.status(200).send({message: 'Extension del archivo no soportada'});
+
+        }
     }else{
         res.status(200).send({message: 'No se ha subido una imagen'});
     }
