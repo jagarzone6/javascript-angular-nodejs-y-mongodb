@@ -5,3 +5,4 @@
 #No target
 */target/**
 **/target/**
+**/node_modules/**
