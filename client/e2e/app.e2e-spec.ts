@@ -1,10 +1,10 @@
-import { CourseClientPage } from './app.po';
+import { ClientPage } from './app.po';
 
-describe('course-client App', function() {
-  let page: CourseClientPage;
+describe('client App', function() {
+  let page: ClientPage;
 
   beforeEach(() => {
-    page = new CourseClientPage();
+    page = new ClientPage();
   });
 
   it('should display message saying app works', () => {
