@@ -44,7 +44,7 @@ function getSongs (req,res) {
 
     if(!albumId){
 
-        var find = Song.find().sort('title');
+        var find = Song.find().sort('name');
         find.populate({path: 'album'}).exec( (err, songs)=> {
             if (err) {
                 res.status(500).send({message: 'Error al cargar las canciones !'});
