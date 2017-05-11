@@ -135,7 +135,7 @@ function updateAlbum (req,res) {
 
             }else {
 
-                res.status(200).send({artist: albumUpdated});
+                res.status(200).send({album: albumUpdated});
 
             }
 
