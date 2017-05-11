@@ -184,12 +184,12 @@ function deleteSong(req,res) {
 
 
 function uploadSongFile(req,res){
-    var albumId = req.params.id;
+    var songId = req.params.id;
     var file_name = 'No ha subido ...';
 
     if(req.files){
 
-        var file_path = req.files.image.path;
+        var file_path = req.files.file.path;
 
         var file_split = file_path.split("\/");
 
@@ -201,18 +201,18 @@ function uploadSongFile(req,res){
 
         //console.log(ext_split);
 
-        if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'jpeg' || file_ext == 'gif'){
+        if(file_ext == 'mp3' || file_ext == 'ogg' ){
 
 
-            Album.findByIdAndUpdate(albumId,{image: file_name},(err,albumUpdated) =>{
+            Song.findByIdAndUpdate(songId,{file: file_name},(err,songUpdated) =>{
 
-                if(!albumUpdated){
+                if(!songUpdated){
 
-                    res.status(404).send({message: 'No se ha podido actualizar el Album'});
+                    res.status(404).send({message: 'No se ha podido actualizar la cancion'});
 
                 }else {
 
-                    res.status(200).send({album: albumUpdated});
+                    res.status(200).send({song: songUpdated});
 
                 }
 
@@ -222,19 +222,19 @@ function uploadSongFile(req,res){
 
         }
     }else{
-        res.status(500).send({message: 'No se ha subido una imagen'});
+        res.status(500).send({message: 'No se ha subido una cancion'});
     }
 }
 
 function getSongFile(req,res){
 
-    var imageFile = req.params.imageFile;
-    var path_file = './uploads/albums/'+imageFile;
+    var songFile = req.params.songFile;
+    var path_file = './uploads/songs/'+songFile;
     fs.exists(path_file, function(exists){
         if(exists){
             res.sendFile(path.resolve(path_file));
         }else {
-            res.status(404).send({message: 'No existe la imagen'});
+            res.status(404).send({message: 'No existe la cancion'});
         }
     });
 }

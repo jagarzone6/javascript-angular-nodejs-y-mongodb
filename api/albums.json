@@ -2,3 +2,4 @@
 {"_id":{"$oid":"591390deb7a3541dae1dd351"},"artist":{"$oid":"591378ec58f6db667b53bf70"},"image":"lhvyQZj32lEFhPRY8Z8Y7A_4.jpg","year":1999,"description":"TEST ALBUM","title":"TEST ALBUM","__v":0}
 {"_id":{"$oid":"59139149b7a3541dae1dd353"},"artist":{"$oid":"591378ec58f6db667b53bf70"},"image":"null","year":1999,"description":"TEST ALBUM 2","title":"TEST ALBUM 2","__v":0}
 {"_id":{"$oid":"591396b042de4c2c0edad38a"},"artist":{"$oid":"591378a958f6db667b53bf6e"},"image":"null","year":2010,"description":"TEST ALBUM 3","title":"TEST ALBUM 3","__v":0}
+{"_id":{"$oid":"591482988bd9fd17e9a031d5"},"artist":{"$oid":"591375801cfab46072197d7e"},"image":"null","year":2011,"description":"indie album","title":"505","__v":0}

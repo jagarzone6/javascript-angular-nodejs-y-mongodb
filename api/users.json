@@ -1,3 +1,6 @@
+{"_id":{"$oid":"59129442da383f1f27877e0c"},"password":"$2a$10$O0Hi8KAKcvy/NNuVQFaeu.d4fWfIGkxCh7eKvwS3P6iLUPc2RoGeK","image":"null","role":"ROLE_USER","email":"email","surname":"surname","name":"","__v":0}
+{"_id":{"$oid":"591294d7f0e3881f8fbe64f3"},"password":"$2a$10$ISUkJPSHBKAWU4KbNFPEeuv8qu65UPNikitJ7uznrB5Jj0nnFipX.","image":"null","role":"ROLE_ADMIN","email":"email","surname":"surname","name":"Jorge Garzon","__v":0}
+{"_id":{"$oid":"59129656f0e3881f8fbe64f5"},"password":"$2a$10$ESHAs5RQrDLbdYedWMGSN.umX1jOkw3oXhEZ6xp2OqjeuPrzHrH/q","image":"null","role":"ROLE_ADMIN","email":"","name":"Jorge Garzon","__v":0}
 {"_id":{"$oid":"591322ea87bbb12df5184261"},"password":"$2a$10$Rb/gzu6lQHOUOGMQwB1UhOcmNMnxJEUWwITjkV6A32..R0xgNDMuK","image":"4BCUm4Qwsqtgi6fpf_i01X_n.jpg","role":"ROLE_ADMIN","email":"jgarzon@easysol.net","surname":"Garzon E","name":"Jorge A","__v":0}
 {"_id":{"$oid":"59133212b223b64f3d15bfc8"},"password":"$2a$10$eT0FGMi53M.OFfKcTnh6q.b/3Twl0lLcvj5D//86gaNeDg0T9JNUm","image":"null","role":"ROLE_ADMIN","email":"jgarzon@easysol.net","surname":"Perez","name":"Pepito","__v":0}
 {"_id":{"$oid":"5913322cb223b64f3d15bfc9"},"password":"$2a$10$.3y5kgsjcsVLFIeOA6UNr.l4AYORIOJdz1xJLyYLU0HKL4KGhonKG","image":"null","role":"ROLE_ADMIN","email":"pperez@easysol.net","surname":"Perez","name":"Pepito","__v":0}

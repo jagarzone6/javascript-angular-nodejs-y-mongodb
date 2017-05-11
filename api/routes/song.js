@@ -21,9 +21,9 @@ api.put('/updateSong/:id',md_auth.ensureAuth,SongController.updateSong );
 
 api.delete('/deleteSong/:id',md_auth.ensureAuth,SongController.deleteSong );
 
-//api.post('/uploadImageSong/:id', [md_auth.ensureAuth,md_upload] ,SongController.uploadSongFile );
+api.post('/uploadSongFile/:id', [md_auth.ensureAuth,md_upload] ,SongController.uploadSongFile );
 
-//api.get('/getImageSong/:imageFile', SongController.getSongFile );
+api.get('/getSongFile/:songFile', SongController.getSongFile );
 
 
 
