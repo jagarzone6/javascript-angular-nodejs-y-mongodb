@@ -45,7 +45,13 @@ function getSongs (req,res) {
     if(!albumId){
 
         var find = Song.find().sort('name');
-        find.populate({path: 'album'}).exec( (err, songs)=> {
+        find.populate({path: 'album',
+        populate: {
+            path: 'artist',
+            model: 'Artist'
+        }
+
+        }).exec( (err, songs)=> {
             if (err) {
                 res.status(500).send({message: 'Error al cargar las canciones !'});
             } else {
@@ -64,7 +70,13 @@ function getSongs (req,res) {
     }else {
 
         var find = Song.find({album: albumId}).sort('number');
-        find.populate({path: 'album'}).exec( (err, songs)=> {
+        find.populate({path: 'album',
+            populate: {
+                path: 'artist',
+                model: 'Artist'
+            }
+
+        }).exec( (err, songs)=> {
 
             if (err) {
                 res.status(500).send({message: 'Error al cargar las canciones !'});
