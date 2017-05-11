@@ -33,7 +33,7 @@ function getSong (req,res) {
 
 function getSongs (req,res) {
 
-    var albumId = req.params.artist;
+    var albumId = req.params.album;
     if(req.params.page){
         var page = req.params.page;
     }else{
@@ -96,7 +96,7 @@ function saveSong (req,res) {
     song.name = params.name;
     song.number = params.number;
     song.duration = params.duration;
-    song.file = params.file;
+    song.file = "null";
     song.album = params.album;
 
 
