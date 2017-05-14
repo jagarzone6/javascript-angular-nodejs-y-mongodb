@@ -25,8 +25,8 @@ export class AppComponent {
     this.identity= this._userService.getIdentity();
     this.token = this._userService.getToken();
 
-    console.log(this.identity);
-    console.log(this.token);
+    //console.log(this.identity);
+    //console.log(this.token);
   }
 
   public onSubmit(){
