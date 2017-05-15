@@ -39,7 +39,7 @@ export class UserService{
       .map(res => res.json());
   }
 
-  update_user(user_to_update){
+  updateUser(user_to_update){
 
     let json = JSON.stringify(user_to_update);
     let params = json;
@@ -50,7 +50,7 @@ export class UserService{
 
     });
 
-    return this._http.put(this.url+'updateUser'+user_to_update._id,
+    return this._http.put(this.url+'updateUser/'+user_to_update._id,
       params,{headers: headers})
       .map(res => res.json());
   }

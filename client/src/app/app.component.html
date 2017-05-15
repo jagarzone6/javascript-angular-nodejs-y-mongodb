@@ -22,10 +22,16 @@
   </nav>
   <nav id="user_logged_options">
 
-    <span class="btn-info">
+    <div class="image_for_edit" >
+
+      <img id="thumb_user" src="{{url + 'getImageUser/' + identity.image }}" style="width: 30px"/>
+
+    </div>
+
+    <span id ="identity_name" class="btn-info">
       {{identity.name}}
     </span>
-    <span class="btn btn-warning" (click)="logout()">
+    <span class="btn btn-danger" (click)="logout()">
       [Cerrar sesión]
     </span>
     <a [routerLink]="['/mis-datos']">

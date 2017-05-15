@@ -3,4 +3,61 @@
   <h1>{{titulo}}</h1>
   <!--FORMULARIO-->
 
+  <div *ngIf="alertEdit" class="alert alert-success">
+    {{alertEdit}}
+
+  </div>
+
+  <div *ngIf="errorEdit" class="alert alert-info">
+    <strong>Error</strong> {{errorEdit}}
+
+  </div>
+
+  <form #userUpdateForm="ngForm" (ngSubmit)="onSubmitUpdate()" class="col-md-7">
+    <p>
+      <label>
+        Name:
+      </label>
+      <input type="text" #name="ngModel" name="name" [(ngModel)]="user.name" class="form-control" required/>
+      <span *ngIf="!name.valid && name.touched">
+          Name is required
+        </span>
+    </p>
+
+    <p>
+      <label>
+        Surname:
+      </label>
+      <input type="text" #surname="ngModel" name="surname" [(ngModel)]="user.surname" class="form-control" required/>
+      <span *ngIf="!surname.valid && surname.touched">
+          Surname is required
+        </span>
+    </p>
+
+    <p>
+      <label>
+        E-mail:
+      </label>
+      <input type="email" #email="ngModel" name="email" [(ngModel)]="user.email"
+             class="form-control" required/>
+      <span *ngIf="!email.valid && email.touched">
+          Email is required
+        </span>
+    </p>
+
+    <div class="image_for_edit" *ngIf="user.image && user.image != 'null' && user.image != null ">
+
+      <img src="{{url + 'getImageUser/' + user.image }}" style="width: 100px"/>
+
+    </div>
+
+    <p>
+      <label>Upload your picture: </label>
+      <input class="bnt btn-primary" type="file" placeholder="Upload image..." (change)="fileChangeEvent($event)">
+    </p>
+
+    <input type="submit" value="Update my data" class="btn btn-primary" />
+
+  </form>
+
 </div>
