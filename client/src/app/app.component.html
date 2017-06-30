@@ -14,7 +14,7 @@
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
       Search
     </a>
-    <a href="#">
+    <a [routerLink]="['/artists']">
       <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
       Artists
     </a>
@@ -55,7 +55,7 @@
 
 
 
-<div *ngIf="identity" class="central col-lg-10 col-md-10 col-sm-8 col-xs-7">
+<div [class.hidden]="!identity" class="central col-lg-10 col-md-10 col-sm-8 col-xs-7">
   <router-outlet></router-outlet>
 </div>
 
