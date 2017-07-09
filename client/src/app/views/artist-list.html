@@ -25,11 +25,11 @@
   <ul class="artists-list">
     <li *ngFor="let artist of artists" class="col-lg-3 col-md-4 artist-item">
       <div class="artist-image">
-        <img src="{{url + 'getImageArtist/'+artist.image}}" />
+        <img [routerLink]="['/artist',artist._id]" src="{{url + 'getImageArtist/'+artist.image}}" />
 
       </div>
       <div class="artist-name">
-        <a [routerLink]="['/update-artist',artist._id]">
+        <a [routerLink]="['/artist',artist._id]">
         {{artist.name}}
         </a>
       </div>
