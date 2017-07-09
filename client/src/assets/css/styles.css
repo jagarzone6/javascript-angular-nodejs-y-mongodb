@@ -23,6 +23,7 @@ html, body{
   color: white;
   background: #1C1C1F;
   height: 100%;
+  overflow: hidden;
 
 }
 .navigation a{
