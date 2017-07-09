@@ -1,7 +1,7 @@
 
 <div *ngIf="identity" class="navigation col-lg-1 col-md-1.5 col-sm-2 col-xs-3">
 <h1 class="head-title">
-  <a [routerLink]="['/']" >
+  <a [routerLink]="['/home']" [routerLinkActive]="['actived']" >
     <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
     {{title}}
   </a>
@@ -10,15 +10,15 @@
 
   <nav class="navigation">
 
-    <a href="#">
+    <a href="#" [routerLinkActive]="['actived']">
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
       Search
     </a>
-    <a [routerLink]="['/artists']">
+    <a [routerLink]="['/artists',1]" [routerLinkActive]="['actived']">
       <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
       Artists
     </a>
-    <a href="#">
+    <a href="#" [routerLinkActive]="['actived']">
       <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
       Albums
     </a>
@@ -36,7 +36,7 @@
       {{identity.name}}
     </span>
 
-    <a [routerLink]="['/mis-datos']">
+    <a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']">
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
       Mis datos
     </a>
@@ -65,7 +65,7 @@
   <div class="col-lg-4">
     <h1> Identificate yourself</h1>
 
-    <div *ngIf="errorMessage" class="alert alert-info">
+    <div *ngIf="errorMessage" class="alert alert-danger">
       <strong>Error</strong> {{errorMessage}}
 
     </div>
@@ -106,7 +106,7 @@
 
     </div>
 
-    <div *ngIf="errorMessage2" class="alert alert-info">
+    <div *ngIf="errorMessage2" class="alert alert-danger">
       <strong>Error</strong> {{errorMessage}}
 
     </div>

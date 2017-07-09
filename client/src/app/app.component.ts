@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {User} from "./models/user";
 import {UserService} from './services/user.service';
 import {GLOBAL} from './services/global';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,9 @@ export class AppComponent {
   public errorMessage2;
   public alertRegister;
   public url: string;
-  constructor(private _userService:UserService){
+  constructor(private _userService:UserService,
+              private _route: ActivatedRoute,
+              private _router: Router){
     this.user = new User("","","","","","ROLE_USER","");
     this.user_register = new User("","","","","","ROLE_USER","");
     this.url = GLOBAL.url;
@@ -92,6 +95,7 @@ export class AppComponent {
 
     this.identity = null;
     this.token =null;
+    this._router.navigate(['/']);
 
   }
 
