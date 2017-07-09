@@ -21,7 +21,7 @@
 
   <div *ngIf="is_edited">
 
-    <div class="image_for_edit" *ngIf=" artist.image && artist.image !='null'">
+    <div class="artist_image_for_edit" *ngIf=" artist.image && artist.image !='null'">
       <img src="{{url + 'getImageArtist/' + artist.image }}" />
     </div>
     <p>

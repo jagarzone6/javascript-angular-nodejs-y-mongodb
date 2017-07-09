@@ -7,6 +7,9 @@ html, body{
   border-bottom: 4px solid #84BD00;
   padding-bottom:4px;
 }
+.artist_image_for_edit img{
+  width: 250px;
+}
 .head-title{
   font-size: 20px;
   font-weight: bold;
