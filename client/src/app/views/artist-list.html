@@ -5,26 +5,31 @@
     <strong>Error</strong> {{errorMessage}}
   </div>
 
+  <div class="clearfix" >
   <ul class="pagination left" style="padding-bottom: 30px;">
-    <li><a [routerLink]="['/artists',prev_page]">&laquo;</a></li>
-    <li><a [routerLink]="['/artists',next_page]">&raquo;</a></li>
-  </ul>
-
-    <a [routerLink]="['/new-artist']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn-default">
+<li><a [routerLink]="['/new-artist']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default left">
     Add Artist
-  </a>
+  </a></li>
+</ul>
+
+<ul class="pagination left" style="padding-bottom: 30px;">
+<li><a [routerLink]="['/artists',prev_page]">&laquo;</a></li>
+<li><a [routerLink]="['/artists',next_page]">&raquo;</a></li>
+</ul>
+
+  </div>
 
 
 </div>
 <div class="clearfix" *ngIf="identity">
   <ul class="artists-list">
-    <li *ngFor="let artist of artists" class="col-lg-3 col-md-3 artist-item">
+    <li *ngFor="let artist of artists" class="col-lg-3 col-md-4 artist-item">
       <div class="artist-image">
         <img src="{{url + 'getImageArtist/'+artist.image}}" />
 
       </div>
       <div class="artist-name">
-        <a href="#">
+        <a [routerLink]="['/update-artist',artist._id]">
         {{artist.name}}
         </a>
       </div>

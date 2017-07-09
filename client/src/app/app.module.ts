@@ -10,6 +10,7 @@ import { ArtistListComponent } from './components/artist-list.component';
 import { HomeComponent } from './components/home.component';
 import { ArtistAddComponent } from './components/artist-add.component';
 import { ArtistEditComponent } from './components/artist-edit.component';
+import { ArtistDetailComponent } from './components/artist-detail.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ArtistEditComponent } from './components/artist-edit.component';
     ArtistListComponent,
     HomeComponent,
     ArtistAddComponent,
-    ArtistEditComponent
+    ArtistEditComponent,
+    ArtistDetailComponent
   ],
   imports: [
     BrowserModule,

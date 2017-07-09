@@ -7,21 +7,19 @@ import {Artist} from '../models/artist';
 import {GLOBAL} from '../services/global';
 
 @Component({
-  selector: 'artist-list',
-  templateUrl: '../views/artist-list.html',
+  selector: 'artist-detail',
+  templateUrl: '../views/artist-detail.html',
   providers: [UserService,ArtistService]
 })
 
-export class ArtistListComponent implements OnInit{
+export class ArtistDetailComponent implements OnInit{
   public titulo: string;
-  public artists: Artist[];
+  public artist: Artist;
   public identity;
   public token;
   public url:string;
-  public page;
-  public next_page=1;
-  public prev_page=1;
   public errorMessage;
+  public id;
   constructor(
     private _route: ActivatedRoute,
   private _router: Router,
@@ -29,7 +27,7 @@ export class ArtistListComponent implements OnInit{
   private _artistService: ArtistService
   ){
 
-    this.titulo = 'Artists';
+    this.titulo = 'Artist detail';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
@@ -37,33 +35,23 @@ export class ArtistListComponent implements OnInit{
   ngOnInit(){
     //console.log('artist-list.component cargado');
     //conseguir el listado de artistas
-    this.getArtists();
-    
+    this.getArtist();
   }
 
 
-  getArtists(){
+getArtist(){
     this._route.params.forEach((params:Params)=>{
-      this.page = +params['page'];
-      if(!this.page){
-        this.page = 1;
-      } else{
-        this.next_page = this.page +1;
-        if(this.page >= 2){
-          this.prev_page = this.page -1;
-        }else{
-          this.prev_page = 1;
-        }
-      }
+      this.id= params['id'];
+      this._artistService.getArtist(this.token,this.id).subscribe(
+        response => {
 
-      this._artistService.getArtists(this.token,this.page).subscribe(
-                response => {
-
-          if(!response.artists){
+          if(!response.artist){
             this._router.navigate(['/']);
           }else {
-            this.artists = response.artists;
-            console.log(this.artists);
+            this.artist = response.artist;
+
+            //Get Artist Albums
+            
           }
 
         },
@@ -76,10 +64,10 @@ export class ArtistListComponent implements OnInit{
           }
 
         }
-
-      );
+      )
     });
 
   }
+
 }
 
