@@ -5,11 +5,12 @@ import {UserService} from '../services/user.service';
 import {ArtistService} from '../services/artist.service';
 import {Artist} from '../models/artist';
 import {GLOBAL} from '../services/global';
+import {UploadImageService} from '../services/upload-image.service';
 
 @Component({
   selector: 'artist-edit',
   templateUrl: '../views/artist-edit.html',
-  providers: [UserService,ArtistService]
+  providers: [UserService,ArtistService,UploadImageService]
 })
 
 export class ArtistEditComponent implements OnInit{
@@ -26,7 +27,8 @@ export class ArtistEditComponent implements OnInit{
     private _route: ActivatedRoute,
   private _router: Router,
   private _userService: UserService,
-    private _artistService: ArtistService
+    private _artistService: ArtistService,
+    private _uploadImageService: UploadImageService
   ){
 
     this.titulo = 'Edit Artist';
@@ -79,6 +81,22 @@ export class ArtistEditComponent implements OnInit{
           alert('Error at Server')
         }else{
           this.alertSuccess = 'Artist Updated';
+          //Upload artist image
+          this._uploadImageService.makeFileRequest(this.url+'uploadImageArtist/'+this.id,[],this.filesToUpload,this.token,'image')
+            .then(
+              (result) => {
+
+                this._router.navigate(['/artists',1])
+
+              },
+              (error) => {
+                this.errorMessage = <any>error;
+                if (this.errorMessage != null) {
+                  var body = JSON.parse(error._body);
+                  this.errorMessage = body.message;
+                }
+              }
+            );
         }
       },
       error => {
@@ -91,6 +109,14 @@ export class ArtistEditComponent implements OnInit{
     );
   }
 
+  public filesToUpload: Array<File>;
+
+
+  fileChangeEvent(fileInput: any){
+
+    this.filesToUpload =<Array<File>>fileInput.target.files;
+
+  }
 
 
 
