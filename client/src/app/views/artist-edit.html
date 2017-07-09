@@ -1,0 +1,54 @@
+<div class="head-page" *ngIf="identity">
+  <h1>{{titulo}}</h1>
+</div>
+<form #formArtist="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-lg-offset-1">
+  <p>
+    <label>Name</label>
+    <input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name"
+           class="form-control" required />
+    <span *ngIf="!name.valid && name.touched">
+      Name is mandatory !!!
+    </span>
+  </p>
+  <p>
+    <label>Description</label>
+    <textarea #description="ngModel" name="description" [(ngModel)]="artist.description"
+              class="form-control" required></textarea>
+    <span *ngIf="!description.valid && description.touched">
+      Description is mandatory !!!
+    </span>
+  </p>
+
+  <div *ngIf="is_edited">
+
+    <div class="image_for_edit" *ngIf=" artist.image && artist.image !='null'">
+      <img src="{{url + 'getImageArtist/' + artist.image }}" />
+    </div>
+    <p>
+
+      <label> Upload the artist image !</label>
+      <input type="file" placeholder="Upload image..."
+             (change)="fileChangeEvent(
+             $event)" />
+
+
+    </p>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    <strong>Error</strong> {{errorMessage}}
+
+  </div>
+
+  <div *ngIf="alertSuccess" class="alert alert-success">
+
+    {{alertSuccess}}
+
+  </div>
+
+  <input type="submit" value="Update Artist Info"
+         [disabled]="!formArtist.form.valid"
+         class="btn btn-success"/>
+</form>
+
+

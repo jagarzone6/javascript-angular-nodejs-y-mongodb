@@ -7,12 +7,12 @@ import {Artist} from '../models/artist';
 import {GLOBAL} from '../services/global';
 
 @Component({
-  selector: 'artist-add',
-  templateUrl: '../views/artist-add.html',
+  selector: 'artist-edit',
+  templateUrl: '../views/artist-edit.html',
   providers: [UserService,ArtistService]
 })
 
-export class ArtistAddComponent implements OnInit{
+export class ArtistEditComponent implements OnInit{
   public titulo: string;
   public artist: Artist;
   public identity;
@@ -20,6 +20,8 @@ export class ArtistAddComponent implements OnInit{
   public url:string;
   public errorMessage;
   public alertSuccess;
+  public is_edited;
+  public id;
   constructor(
     private _route: ActivatedRoute,
   private _router: Router,
@@ -27,27 +29,56 @@ export class ArtistAddComponent implements OnInit{
     private _artistService: ArtistService
   ){
 
-    this.titulo = 'Add New Artist';
+    this.titulo = 'Edit Artist';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
     this.artist = new Artist('','','');
+    this.is_edited = true;
 }
   ngOnInit(){
     //conseguir el listado de artistas
+    //Get artist by ID.
+    this.getArtist();
   }
 
-  onSubmit(){
+  getArtist(){
+    this._route.params.forEach((params:Params)=>{
+      this.id= params['id'];
+      this._artistService.getArtist(this.token,this.id).subscribe(
+        response => {
+
+          if(!response.artist){
+            this._router.navigate(['/']);
+          }else {
+            this.artist = response.artist;
+          }
+
+        },
+        error => {
+
+          var errorMessage = <any>error;
+          if (this.errorMessage != null) {
+            var body = JSON.parse(error._body);
+            //this.errorMessage = body.message;
+          }
+
+        }
+      )
+    });
+
+  }
+
+  onSubmit() {
+
     //console.log(this.artist);
-    this._artistService.addArtist(this.token,this.artist).subscribe(
+    this._artistService.updateArtist(this.token,this.id,this.artist).subscribe(
       response => {
 
         if(!response.artist){
           alert('Error at Server')
         }else{
-          this.artist = response.artist;
-          this.alertSuccess = 'Artist Created';
-          //this._router.navigate(['/edit-artist'],response.artist._id);
+          this.alertSuccess = 'Artist Updated';
         }
       },
       error => {
@@ -59,5 +90,9 @@ export class ArtistAddComponent implements OnInit{
       }
     );
   }
+
+
+
+
 
 }
