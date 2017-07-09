@@ -1,6 +1,6 @@
-<div class="head-page" *ngIf="identity">
+<div class="head-page" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
   <h1>{{titulo}}</h1>
-</div>
+
 <form #formArtist="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-lg-offset-1">
   <p>
     <label>Name</label>
@@ -32,5 +32,16 @@
 <div *ngIf="alertSuccess" class="alert alert-success">
 
   {{alertSuccess}}
+
+</div>
+
+</div>
+
+<div class="head-page" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+
+  <div class="alert alert-danger">
+    <strong>Access not allowed. RESTRICTED</strong>
+
+  </div>
 
 </div>
