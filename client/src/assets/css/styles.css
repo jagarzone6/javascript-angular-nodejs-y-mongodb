@@ -75,11 +75,12 @@ html, body{
 .artists-list{
   margin: 0px;
   padding: 0px;
+  padding-top: 50px;
   margin-top: 30px;
   list-style: none;
 }
 .artist-item{
-  width: 23%;
+  width: 200px;
   margin: 0px;
   padding: 0px;
   height: 317px;
@@ -107,4 +108,13 @@ background: black;
 }
 .artist-item .artist-name a{
   color: white;
+}
+
+.artist-item .buttons{
+  color: white;
+  padding-left: 15px;
+  padding: 0px;
+  background: #222326;
+   width: 100%;
+   align-items: center;
 }

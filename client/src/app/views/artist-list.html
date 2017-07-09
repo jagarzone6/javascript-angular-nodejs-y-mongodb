@@ -1,24 +1,24 @@
-<div class="head-page" *ngIf="identity">
+<div *ngIf="identity">
   <h1>{{titulo}}</h1>
-
-  <a [routerLink]="['/new-artist']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn-default">
-    Add Artist
-  </a>
 
   <div *ngIf="errorMessage" class="alert alert-danger">
     <strong>Error</strong> {{errorMessage}}
   </div>
 
-  <ul class="col-sm-5 pagination pull-left">
+  <ul class="pagination left" style="padding-bottom: 30px;">
     <li><a [routerLink]="['/artists',prev_page]">&laquo;</a></li>
     <li><a [routerLink]="['/artists',next_page]">&raquo;</a></li>
   </ul>
+
+    <a [routerLink]="['/new-artist']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn-default">
+    Add Artist
+  </a>
 
 
 </div>
 <div class="clearfix" *ngIf="identity">
   <ul class="artists-list">
-    <li *ngFor="let artist of artists" class="col-lg-3 artist-item">
+    <li *ngFor="let artist of artists" class="col-lg-3 col-md-3 artist-item">
       <div class="artist-image">
         <img src="{{url + 'getImageArtist/'+artist.image}}" />
 
@@ -31,7 +31,6 @@
       <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
         <a class="btn btn-sm btn-warning" [routerLink]="['/update-artist',artist._id]">Update-artist</a>
         <a class="btn btn-sm btn-danger" [routerLink]="['/update-artist',artist._id]">Delete-artist</a>
-
       </div>
     </li>
   </ul>
