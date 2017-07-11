@@ -16,13 +16,13 @@
 
   </div>
 
-<div class="clearfix"></div>
+  <div class="clearfix"></div>
 
-<div id="gallery-albums" *ngIf="albums">
-<!-- List Albums -->
+  <div id="gallery-albums" *ngIf="albums">
+    <!-- List Albums -->
 
-</div>
-  
+  </div>
+
 </div>
 
 <div class="clearfix" *ngIf="identity">
@@ -38,10 +38,14 @@
         </a>
       </div>
       <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
-        <a class="btn btn-sm btn-warning" [routerLink]="['/update-artist',artist._id]">Update-album</a>
+        <a class="btn btn-sm btn-warning" [routerLink]="['/update-album',album._id]">Update-album</a>
         <a (click)="onDeleteConfirm(album._id)" class="btn btn-sm btn-danger">Delete-album</a>
       </div>
 
+      <div class="seguro" *ngIf="confirmado==album._id">
+        <a (click)="onDeleteAlbum(album._id)" class="btn btn-sm btn-danger">Delete</a>
+        <a (click)="onCancelAlbum()" class="btn btn-sm btn-primary">Cancel</a>
+      </div>
     </li>
   </ul>
 </div>

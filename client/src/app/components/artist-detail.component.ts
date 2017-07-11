@@ -102,5 +102,36 @@ getArtist(){
 
   }
 
+  public confirmado;
+  onDeleteConfirm(id){
+    this.confirmado=id;
+  }
+  onCancelAlbum(){
+    this.confirmado=null;
+  }
+  onDeleteAlbum(id){
+    this._albumService.deleteAlbum(this.token,id).subscribe(
+      response => {
+
+          if(!response.albumDeleted){
+            this.errorMessage = 'Error en server';
+          }else {
+            this.getAlbums();
+          }
+
+        },
+        error => {
+
+          var errorMessage = <any>error;
+          if (this.errorMessage != null) {
+            var body = JSON.parse(error._body);
+            //this.errorMessage = body.message;
+          }
+
+        }
+
+    );
+  }
+
 }
 

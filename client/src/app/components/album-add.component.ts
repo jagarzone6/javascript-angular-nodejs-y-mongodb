@@ -52,7 +52,7 @@ onSubmit(){
         }else{
           this.album = response.Album;
           this.alertSuccess = 'Album Created';
-          //this._router.navigate(['/update-album',response.album._id]);
+          this._router.navigate(['/update-album',response.Album._id]);
         }
       },
       error => {
