@@ -15,7 +15,7 @@ export class SongService{
 
 
 
-  getSongs(token, album:string){
+  getSongs(token, album = ""){
     let headers = new Headers({
       'Content-Type':'application/json',
       'Authorization':token
