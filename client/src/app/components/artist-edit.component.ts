@@ -87,7 +87,7 @@ export class ArtistEditComponent implements OnInit{
               .then(
                 (result) => {
 
-                  this._router.navigate(['/artists',1])
+                  this._router.navigate(['/artists',1]);
 
                 },
                 (error) => {
@@ -98,6 +98,8 @@ export class ArtistEditComponent implements OnInit{
                   }
                 }
               );
+          }else{
+            this._router.navigate(['/artists',1]);
           }
 
         }
