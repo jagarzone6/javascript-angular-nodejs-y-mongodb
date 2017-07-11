@@ -112,7 +112,27 @@ getAlbum(){
     this.confirmado=null;
   }
   onDeleteSong(id){
+    this._songService.deleteSong(this.token,id).subscribe(
+      response => {
 
+        if(!response.songDeleted){
+          this.errorMessage = 'Error en server';
+        }else {
+          this.getSongs();
+        }
+
+      },
+      error => {
+
+        var errorMessage = <any>error;
+        if (this.errorMessage != null) {
+          var body = JSON.parse(error._body);
+          //this.errorMessage = body.message;
+        }
+
+      }
+
+    );
   }
 
 }
