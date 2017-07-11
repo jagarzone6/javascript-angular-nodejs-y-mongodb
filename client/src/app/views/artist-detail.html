@@ -24,3 +24,24 @@
 </div>
   
 </div>
+
+<div class="clearfix" *ngIf="identity">
+  <ul class="artists-list">
+    <li *ngFor="let album of albums" class="col-lg-3 col-md-4 artist-item">
+      <div class="artist-image">
+        <img [routerLink]="['/album',album._id]" src="{{url + 'getImageAlbum/'+album.image}}" />
+
+      </div>
+      <div class="artist-name">
+        <a [routerLink]="['/album',album._id]">
+        {{album.title}} - {{album.year}}
+        </a>
+      </div>
+      <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
+        <a class="btn btn-sm btn-warning" [routerLink]="['/update-artist',artist._id]">Update-album</a>
+        <a (click)="onDeleteConfirm(album._id)" class="btn btn-sm btn-danger">Delete-album</a>
+      </div>
+
+    </li>
+  </ul>
+</div>
