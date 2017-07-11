@@ -9,7 +9,7 @@
       <p class="year">{{album.year}}</p>
       <p class="description">{{album.description}}</p>
 
-      <a [routerLink]="['/song-add',album._id]" *ngIf="identity.role == 'ROLE_ADMIN'" class="btn btn-default">
+      <a [routerLink]="['/new-song',album._id]" *ngIf="identity.role == 'ROLE_ADMIN'" class="btn btn-default">
         Add new Song
         </a>
 

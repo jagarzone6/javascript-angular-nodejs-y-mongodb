@@ -1,0 +1,57 @@
+<div class="head-page" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+  <h1>{{titulo}}</h1>
+
+<form #formSong="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-lg-offset-1">
+  <p>
+    <label>Name</label>
+    <input type="text" #name="ngModel" name="name" [(ngModel)]="song.name"
+           class="form-control" required />
+    <span *ngIf="!name.valid && name.touched">
+      Name is mandatory !!!
+    </span>
+  </p>
+
+  <p>
+    <label>Number</label>
+    <input type="number" #number="ngModel" name="number" [(ngModel)]="song.number"
+           class="form-control" required />
+    <span *ngIf="!number.valid && number.touched">
+      Number is mandatory !!!
+    </span>
+  </p>
+
+  <p>
+    <label>Duration</label>
+    <input type="number" #duration="ngModel" name="duration" [(ngModel)]="song.duration"
+           class="form-control" required />
+    <span *ngIf="!duration.valid && duration.touched">
+      Duration is mandatory !!!
+    </span>
+  </p>
+
+  <input type="submit" value="Create Song"
+         [disabled]="!formSong.form.valid"
+  class="btn btn-success"/>
+</form>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  <strong>Error</strong> {{errorMessage}}
+
+</div>
+
+<div *ngIf="alertSuccess" class="alert alert-success">
+
+  {{alertSuccess}}
+
+</div>
+
+</div>
+
+<div class="head-page" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+
+  <div class="alert alert-danger">
+    <strong>Access not allowed. RESTRICTED</strong>
+
+  </div>
+
+</div>
