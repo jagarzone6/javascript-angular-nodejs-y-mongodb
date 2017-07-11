@@ -26,13 +26,13 @@
 </div>
 
 <div class="clearfix" *ngIf="identity">
-  <ul class="artists-list">
-    <li *ngFor="let album of albums" class="col-lg-3 col-md-4 artist-item">
-      <div class="artist-image">
+  <ul class="albums-list">
+    <li *ngFor="let album of albums" class="col-lg-3 col-md-4 album-item">
+      <div class="album-image">
         <img [routerLink]="['/album',album._id]" src="{{url + 'getImageAlbum/'+album.image}}" />
 
       </div>
-      <div class="artist-name">
+      <div class="album-name">
         <a [routerLink]="['/album',album._id]">
         {{album.title}} - {{album.year}}
         </a>

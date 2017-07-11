@@ -100,6 +100,7 @@ background: black;
 
 .artist-item .artist-image img{
   height: 100%;
+  width: 100%;
 }
 
 .artist-item .artist-name{
@@ -142,6 +143,56 @@ background: black;
   margin-top: -30px;
   background: #222326;
   position: absolute;
-  height: 40px;
+  height: 30px;
   width: 100%;
+}
+
+.albums-list{
+  margin: 0px;
+  padding: 0px;
+  padding-top: 50px;
+  margin-top: 30px;
+  padding-bottom: 50px;
+  list-style: none;
+  overflow-y: scroll;
+}
+.album-item{
+  width: 300px;
+  margin: 0px;
+  padding: 0px;
+  height: 407px;
+  border: 1px solid #444;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.album-item .album-image{
+height: 335px;
+width: 100%;
+overflow: hidden;
+background: black;
+}
+
+.album-item .album-image img{
+  height: 100%;
+  width: 100%;
+}
+
+.album-item .album-name{
+  color: white;
+  padding: 10px;
+  background: #222326;
+
+}
+.album-item .album-name a{
+  color: white;
+}
+
+.album-item .buttons{
+  color: white;
+  padding-left: 20px;
+  padding: 0px;
+  background: #222326;
+   width: 100%;
+   align-items: right;
 }
