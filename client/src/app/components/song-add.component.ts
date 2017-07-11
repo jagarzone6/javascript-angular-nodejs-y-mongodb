@@ -54,7 +54,7 @@ onSubmit(){
         }else{
           this.song = response.songStored;
           this.alertSuccess = 'Song Created';
-          //this._router.navigate(['/update-song',response.songStored._id]);
+          this._router.navigate(['/song-edit',response.songStored._id]);
         }
       },
       error => {
