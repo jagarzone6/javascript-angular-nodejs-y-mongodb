@@ -1,0 +1,47 @@
+<div class="head-page" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+  <h1>{{titulo}}</h1>
+
+<form #formAlbum="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-lg-offset-1">
+  <p>
+    <label>Title</label>
+    <input type="text" #title="ngModel" name="title" [(ngModel)]="album.title"
+           class="form-control" required />
+    <span *ngIf="!title.valid && title.touched">
+      Title is mandatory !!!
+    </span>
+  </p>
+  <p>
+    <label>Description</label>
+    <textarea #description="ngModel" name="description" [(ngModel)]="album.description"
+              class="form-control" required></textarea>
+    <span *ngIf="!description.valid && description.touched">
+      Description is mandatory !!!
+    </span>
+  </p>
+
+  <input type="submit" value="Create album"
+         [disabled]="!formAlbum.form.valid"
+  class="btn btn-success"/>
+</form>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  <strong>Error</strong> {{errorMessage}}
+
+</div>
+
+<div *ngIf="alertSuccess" class="alert alert-success">
+
+  {{alertSuccess}}
+
+</div>
+
+</div>
+
+<div class="head-page" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+
+  <div class="alert alert-danger">
+    <strong>Access not allowed. RESTRICTED</strong>
+
+  </div>
+
+</div>
