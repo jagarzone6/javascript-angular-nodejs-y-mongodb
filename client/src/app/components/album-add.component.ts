@@ -16,7 +16,6 @@ import {UploadImageService} from '../services/upload-image.service';
 
 export class AlbumAddComponent implements OnInit{
   public titulo: string;
-  public artist: Artist;
   public album : Album;
   public identity;
   public token;
@@ -36,11 +35,12 @@ export class AlbumAddComponent implements OnInit{
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
-    this.album = new Album('','',null,'','');
+    this.album = new Album('','',2017,'',_route.snapshot.params['artist']);
 }
   ngOnInit(){
     //conseguir el listado de artistas
     //Get artist by ID.
+    console.log(this.album);
   }
 
  
