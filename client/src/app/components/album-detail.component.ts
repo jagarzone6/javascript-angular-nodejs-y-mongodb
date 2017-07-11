@@ -4,6 +4,8 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {ArtistService} from '../services/artist.service';
 import {AlbumService} from '../services/album.service';
+import {SongService} from '../services/song.service';
+
 import {Album} from '../models/album';
 import {Song} from '../models/song';
 import {GLOBAL} from '../services/global';
@@ -11,7 +13,7 @@ import {GLOBAL} from '../services/global';
 @Component({
   selector: 'album-detail',
   templateUrl: '../views/album-detail.html',
-  providers: [UserService,ArtistService,AlbumService]
+  providers: [UserService,ArtistService,AlbumService,SongService]
 })
 
 export class AlbumDetailComponent implements OnInit{
@@ -27,8 +29,8 @@ export class AlbumDetailComponent implements OnInit{
     private _route: ActivatedRoute,
   private _router: Router,
   private _userService: UserService,
-  private _artistService: ArtistService,
-  private _albumService: AlbumService
+  private _albumService: AlbumService,
+    private _songService: SongService
   ){
 
     this.titulo = 'Artist detail';
@@ -40,7 +42,7 @@ export class AlbumDetailComponent implements OnInit{
     //console.log('artist-list.component cargado');
     //conseguir el listado de artistas
     this.getAlbum();
-    //this.getSongs();
+    this.getSongs();
   }
 
 
@@ -76,6 +78,28 @@ getAlbum(){
 
   getSongs(){
 
+    this._songService.getSongs(this.token,this.id).subscribe(
+      response => {
+
+        if(!response.songs){
+          this._router.navigate(['/']);
+        }else {
+          this.songs = response.songs;
+          console.log(this.songs);
+        }
+
+      },
+      error => {
+
+        var errorMessage = <any>error;
+        if (this.errorMessage != null) {
+          var body = JSON.parse(error._body);
+          this.errorMessage = body.message;
+        }
+
+      }
+
+    );
 
 
   }
