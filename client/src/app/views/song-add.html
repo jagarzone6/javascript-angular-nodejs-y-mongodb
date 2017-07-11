@@ -29,6 +29,24 @@
     </span>
   </p>
 
+  <div *ngIf="is_edited">
+
+    <div class="song_file_for_edit" *ngIf=" song.file && song.file !='null'">
+      <audio controls>
+        <source src="{{url + 'getSongFile/' + song.file }}" type="audio/mpeg"/>
+        El navegador no soporta la reproduccion del audio
+
+      </audio>
+    </div>
+    <p>
+
+      <label> Upload the song file !</label>
+      <input type="file" placeholder="Upload image..."
+             (change)="fileChangeEvent(
+             $event)" />
+    </p>
+  </div>
+
   <input type="submit" value="Create Song"
          [disabled]="!formSong.form.valid"
   class="btn btn-success"/>

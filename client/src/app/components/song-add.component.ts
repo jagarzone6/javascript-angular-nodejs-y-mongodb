@@ -23,6 +23,7 @@ export class SongAddComponent implements OnInit{
   public errorMessage;
   public alertSuccess;
   public id;
+  public is_edited;
   constructor(
     private _route: ActivatedRoute,
   private _router: Router,
@@ -35,12 +36,13 @@ export class SongAddComponent implements OnInit{
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
+    this.is_edited = false;
     this.song = new Song(null,'','','',_route.snapshot.params['album']);
 }
   ngOnInit(){
     //conseguir el listado de artistas
     //Get artist by ID.
-    console.log(this.song);
+
   }
 
 onSubmit(){
