@@ -35,7 +35,7 @@ export class SongAddComponent implements OnInit{
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
-    this.song = new Song(null,'',null,'',_route.snapshot.params['album']);
+    this.song = new Song(null,'','','',_route.snapshot.params['album']);
 }
   ngOnInit(){
     //conseguir el listado de artistas

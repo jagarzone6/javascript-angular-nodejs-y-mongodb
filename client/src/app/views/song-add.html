@@ -22,7 +22,7 @@
 
   <p>
     <label>Duration</label>
-    <input type="number" #duration="ngModel" name="duration" [(ngModel)]="song.duration"
+    <input type="text" #duration="ngModel" name="duration" [(ngModel)]="song.duration"
            class="form-control" required />
     <span *ngIf="!duration.valid && duration.touched">
       Duration is mandatory !!!
