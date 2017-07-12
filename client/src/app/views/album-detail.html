@@ -22,26 +22,27 @@
   <div id="gallery-songs" *ngIf="songs">
     <!-- List Song -->
 
-    <ul class="songs-list">
-      <li *ngFor="let song of songs" class="col-lg-3 col-md-4 song-item">
 
-        <div class="btn btn-success">
+    <ul id="songs-list">
+      <li *ngFor="let song of songs" class="song-item">
 
-          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-        </div>
 
-        <div class="song-name">
-          <a [routerLink]="['/song-edit',song._id]">
-            {{song.number}}. {{song.name}} - {{song.duration}}
+        <div class="title">
+
+          <a class="btn btn-success">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
           </a>
+          {{song.number + '. ' + song.name + ' - ' + song.duration}}
+          <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
+            <a  class="btn btn-sm btn-warning" [routerLink]="['/song-edit',song._id]">Update-song</a>
+            <a  (click)="onDeleteConfirm(song._id)" class="btn btn-sm btn-danger">Delete-song</a>
 
-          <a *ngIf="identity.role == 'ROLE_ADMIN'" class="btn btn-sm btn-warning" [routerLink]="['/song-edit',song._id]">Update-song</a>
-          <a *ngIf="identity.role == 'ROLE_ADMIN'" (click)="onDeleteConfirm(song._id)" class="btn btn-sm btn-danger">Delete-song</a>
+          </div>
+          <div class="clearfix"></div>
 
 
         </div>
-          <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
-          </div>
+
 
         <div class="seguro" *ngIf="confirmado==song._id">
           <a (click)="onDeleteSong(song._id)" class="btn btn-sm btn-danger">Delete</a>
