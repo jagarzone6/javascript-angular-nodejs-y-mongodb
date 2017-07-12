@@ -16,6 +16,7 @@ html, body{
   text-transform: uppercase;
   margin-bottom: 25px;
   display: block;
+  padding-left: 40px;
 }
 
 .navigation{
@@ -126,14 +127,18 @@ background: black;
   background: #222326;
    width: 100%;
    align-items: center;
+  border-left: 30px;
+}
+#artist-head-card{
+  padding-left: 80px;
 }
 #artist-head-card .image{
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   float: left;
   margin-right: 30px;
-
+  border-left: 40px;
 }
 
 #artist-head-card .image img{
@@ -269,7 +274,9 @@ background: #eee;
   margin-top: 5px;
   list-style: none;
   overflow-y: scroll;
-
+  padding-left: 40px;
+  max-height: 770px;
+  min-height: 770px;
 }
 
 .player .audio-file{
