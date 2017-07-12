@@ -220,9 +220,13 @@ background: black;
 }
 
 
-.song-item  .seguro{
-  margin-top: -30px;
+.seguro-song{
+  right: 25px;
+margin-top: -34px;
+background: #eee;
   position: absolute;
-  height: 30px;
-  width: 40%;
+}
+
+.seguro-song .btn{
+  width: 110px;
 }

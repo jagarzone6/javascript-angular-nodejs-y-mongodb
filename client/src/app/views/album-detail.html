@@ -32,22 +32,28 @@
           <a class="btn btn-success">
             <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
           </a>
+
+
           {{song.number + '. ' + song.name + ' - ' + song.duration}}
+
           <div class="buttons" *ngIf="identity.role == 'ROLE_ADMIN'">
-            <a  class="btn btn-sm btn-warning" [routerLink]="['/song-edit',song._id]">Update-song</a>
+            <a  class="btn btn-sm btn-primary" [routerLink]="['/song-edit',song._id]">Update-song</a>
             <a  (click)="onDeleteConfirm(song._id)" class="btn btn-sm btn-danger">Delete-song</a>
 
           </div>
+
+
+          <div class="seguro-song" *ngIf="confirmado==song._id">
+            <a (click)="onDeleteSong(song._id)" class="btn btn-sm btn-danger">Delete</a>
+            <a (click)="onCancelSong()" class="btn btn-sm btn-primary">Cancel</a>
+          </div>
+
           <div class="clearfix"></div>
 
-
         </div>
 
 
-        <div class="seguro" *ngIf="confirmado==song._id">
-          <a (click)="onDeleteSong(song._id)" class="btn btn-sm btn-danger">Delete</a>
-          <a (click)="onCancelSong()" class="btn btn-sm btn-primary">Cancel</a>
-        </div>
+
 
       </li>
     </ul>
