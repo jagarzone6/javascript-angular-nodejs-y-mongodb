@@ -77,13 +77,13 @@ html, body{
   margin-right: 0px;
   margin-left: 0px;
   padding-left: 30px;
-  padding-bottom: 10px;
+  padding-bottom: 2px;
   padding-top: 5px;
   margin-top: 5px;
   list-style: none;
   overflow-y: scroll;
-  max-height: 628px;
-  min-height: 628px;
+  max-height: 640px;
+  min-height: 640px;
   align-items: center;
 }
 .artist-item{
@@ -155,13 +155,13 @@ background: black;
 
 .albums-list{
   margin-right: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 2px;
   padding-top: 5px;
   margin-top: 5px;
   list-style: none;
   overflow-y: scroll;
-  max-height: 628px;
-  min-height: 628px;
+  max-height: 640px;
+  min-height: 640px;
 }
 .album-item{
   width: 300px;
@@ -243,10 +243,11 @@ background: #eee;
 .player{
   background: #1c1C1f;
   position: fixed;
+  bottom: 0px;
   width: 100%;
   border-top:0px;
   padding: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   margin-left: 0px;
   border-left: 1px solid #444;
 }
@@ -263,11 +264,22 @@ background: #eee;
 }
 .module{
   margin-right: 0px;
-  padding-bottom: 5px;
+  padding-bottom: 1px;
   padding-top: 5px;
   margin-top: 5px;
   list-style: none;
   overflow-y: scroll;
-  max-height: 770px;
-  min-height: 770px;
+
+}
+
+.player .audio-file{
+  width: 55%;
+  height: 40px;
+  margin-top: 1px;
+  margin-left: 10px;
+  float: left;
+}
+.player audio{
+  width: 100%;
+  height: 40px;
 }

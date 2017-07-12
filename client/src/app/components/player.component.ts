@@ -16,7 +16,24 @@ import {GLOBAL} from '../services/global'
   </span>
 
   </div>
-  <h1>PLAYER</h1>
+
+  <div class="audio-file">
+    <p>Reproduciendo...</p>
+    <span id="play-song-title">
+    {{song.name}}
+    </span>
+    <span id="play-song-artist">
+      <span *ngIf="song.album.artist">
+        {{song.album.artist.name}}
+      </span>
+    </span>
+    <audio controls id="player">
+      <source id="mp3-source" src="{{url + 'getSongFile/' + song.file }}" type="audio/mpeg"/>
+      El navegador no soporta la reproduccion del audio
+    </audio>
+
+  </div>
+
   `
 })
 
