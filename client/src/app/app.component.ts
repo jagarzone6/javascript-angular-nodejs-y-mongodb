@@ -64,7 +64,7 @@ export class AppComponent {
 
                 localStorage.setItem('token',token);
                 this.user = new User("","","","","","ROLE_USER","");
-
+                this._router.navigate(['/home']);
               }
             },
             error => {
