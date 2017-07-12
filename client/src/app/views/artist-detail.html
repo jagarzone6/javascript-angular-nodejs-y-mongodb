@@ -2,7 +2,9 @@
   <div id="artist-head-card">
 
     <div class="image">
-      <img src="{{url + 'getImageArtist/'+artist.image}}" *ngIf="artist.image && artist.image != 'null'" />
+      <img src="{{url + 'getImageArtist/'+artist.image}}" *ngIf="url + 'getImageArtist/'+artist.image != url + 'getImageArtist/'+'null'" />
+      <img src="../../assets/images/artist.png" *ngIf="url + 'getImageArtist/'+artist.image == url + 'getImageArtist/'+'null'" />
+
     </div>
     <div class="data">
       <h1>{{artist.name}}</h1>
@@ -29,8 +31,8 @@
   <ul class="albums-list">
     <li *ngFor="let album of albums" class="col-lg-3 col-md-4 album-item">
       <div class="album-image">
-        <img [routerLink]="['/album',album._id]" src="{{url + 'getImageAlbum/'+album.image}}" />
-
+        <img [routerLink]="['/album',album._id]" src="{{url + 'getImageAlbum/'+album.image}}" *ngIf="url + 'getImageAlbum/'+album.image != url + 'getImageAlbum/'+'null'"/>
+        <img [routerLink]="['/album',album._id]" src="../../assets/images/album.jpeg" *ngIf="url + 'getImageAlbum/'+album.image == url + 'getImageAlbum/'+'null'"/>
       </div>
       <div class="album-name">
         <a [routerLink]="['/album',album._id]">

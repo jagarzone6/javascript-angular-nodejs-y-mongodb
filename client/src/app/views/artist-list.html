@@ -25,7 +25,8 @@
   <ul class="artists-list">
     <li *ngFor="let artist of artists" class="col-lg-3 col-md-4 artist-item">
       <div class="artist-image">
-        <img [routerLink]="['/artist',artist._id]" src="{{url + 'getImageArtist/'+artist.image}}" />
+        <img [routerLink]="['/artist',artist._id]" src="{{url + 'getImageArtist/'+artist.image}}" *ngIf="url + 'getImageArtist/'+artist.image != url + 'getImageArtist/'+'null'" />
+        <img [routerLink]="['/artist',artist._id]" src="../../assets/images/artist.png" *ngIf="url + 'getImageArtist/'+artist.image == url + 'getImageArtist/'+'null'" />
 
       </div>
       <div class="artist-name">

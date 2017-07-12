@@ -2,7 +2,8 @@
   <div id="artist-head-card">
 
     <div class="image">
-      <img src="{{url + 'getImageAlbum/'+album.image}}" *ngIf="album.image && album.image != 'null'" />
+      <img src="{{url + 'getImageAlbum/'+album.image}}" *ngIf="url + 'getImageAlbum/'+album.image != url + 'getImageAlbum/'+'null'" />
+      <img src="../../assets/images/album.jpeg" *ngIf="url + 'getImageAlbum/'+album.image == url + 'getImageAlbum/'+'null'"/>
     </div>
     <div class="data">
       <h1>{{album.title}}</h1>
