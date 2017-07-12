@@ -76,10 +76,12 @@ html, body{
 .artists-list{
   margin: 0px;
   padding: 0px;
-  padding-top: 50px;
-  margin-top: 30px;
+  padding-top: 20px;
+  margin-top: 20px;
   list-style: none;
   overflow-y: scroll;
+  max-height: 628px;
+  min-height: 628px;
 }
 .artist-item{
   width: 200px;
@@ -137,7 +139,7 @@ background: black;
 .central{
   height: 100%;
   overflow-y: scroll;
-
+  width: auto;
 }
 .seguro{
   margin-top: -30px;
@@ -155,6 +157,8 @@ background: black;
   padding-bottom: 50px;
   list-style: none;
   overflow-y: scroll;
+  max-height: 628px;
+  min-height: 628px;
 }
 .album-item{
   width: 300px;
@@ -236,10 +240,11 @@ background: #eee;
 .player{
   background: #1c1C1f;
   position: fixed;
-  width: 90.2%;
+  width: 100%;
   border-top:0px;
   padding: 20px;
-  margin-left: -15px;
+  padding-bottom: 50px;
+  margin-left: 0px;
   border-left: 1px solid #444;
 }
 
