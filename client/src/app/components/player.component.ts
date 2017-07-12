@@ -12,7 +12,7 @@ import {GLOBAL} from '../services/global'
   </span>
 
   <<span *ngIf="!song.album">
-  <img id="play-image-album" src="../../assets/images/music-image.png"/>
+  <img id="play-image-album" src="../../assets/images/music.ico"/>
   </span>
 
   </div>
