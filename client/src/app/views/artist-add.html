@@ -1,4 +1,4 @@
-<div class="head-page" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+<div class="head-page module" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
   <h1>{{titulo}}</h1>
 
 <form #formArtist="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-lg-offset-1">

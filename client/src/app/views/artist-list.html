@@ -6,16 +6,16 @@
   </div>
 
   <div class="clearfix">
-    <ul class="pagination left" style="padding-bottom: 30px;">
-<li><a [routerLink]="['/new-artist']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default left">
+    <ul class="pagination left" style="padding-bottom: 5px;margin-bottom: 5px;">
+
+      <li><a [routerLink]="['/new-artist']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default left" style="padding: 5px;margin: 0px;margin-left: 15px;margin-right: 20px;">
     Add Artist
-  </a></li>
+          </a>
+      </li>
+      <li><a [routerLink]="['/artists',prev_page]">&laquo;</a></li>
+      <li><a [routerLink]="['/artists',next_page]">&raquo;</a></li>
 </ul>
 
-<ul class="pagination left" style="padding-bottom: 30px;">
-<li><a [routerLink]="['/artists',prev_page]">&laquo;</a></li>
-<li><a [routerLink]="['/artists',next_page]">&raquo;</a></li>
-</ul>
 
 </div>
 
