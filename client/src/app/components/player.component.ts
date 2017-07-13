@@ -7,12 +7,8 @@ import {GLOBAL} from '../services/global'
   template:`
   <div class="album-image">
 
-  <span *ngIf="song.album">
-  <img id="play-image-album" src="{{url + 'getImageAlbum/'+song.album.image}}"/>
-  </span>
-
-  <<span *ngIf="!song.album">
-  <img id="play-image-album" src="../../assets/images/music.ico"/>
+  <span>
+  <img id="player-image-album" src="../../assets/images/music.ico"/>
   </span>
 
   </div>
