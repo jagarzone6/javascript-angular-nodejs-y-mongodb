@@ -8,7 +8,8 @@ import {GLOBAL} from '../services/global'
   <div class="album-image">
 
   <span>
-  <img id="player-image-album" src="../../assets/images/music.ico"/>
+  <img id="player-image-album" src="../../assets/images/music.ico"  *ngIf="url + 'getImageAlbum/'+song.album.image == url + 'getImageAlbum/'+'null'"/>
+  <img id="player-image-album" src="{{url + 'getImageAlbum/'+song.album.image}}"  *ngIf="url + 'getImageAlbum/'+song.album.image != url + 'getImageAlbum/'+'null'"/>
   </span>
 
   </div>
@@ -45,5 +46,12 @@ export class PlayerComponent implements OnInit{
 
   ngOnInit(){
     console.log('player loaded');
+
+    var song = JSON.parse(localStorage.getItem("sound_song"));
+    if(song){
+      this.song = song;
+    }else {
+      this.song = new Song(1,'','','','');
+    }
   }
 }
