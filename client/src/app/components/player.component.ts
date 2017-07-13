@@ -21,7 +21,7 @@ import {GLOBAL} from '../services/global'
     </span>
     <span id="play-song-artist">
       <span *ngIf="song.album.artist">
-        {{song.album.artist.name}}
+        - {{song.album.artist.name}}
       </span>
     </span>
     <audio controls id="player">

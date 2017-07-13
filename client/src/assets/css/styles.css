@@ -96,6 +96,7 @@ html, body{
   margin-left: 0px;
   margin-right: 30px;
   margin-top: 20px;
+  background: #222326;
 }
 
 .artist-item .artist-image{
@@ -176,6 +177,7 @@ background: black;
   border: 1px solid #444;
   margin-left: 30px;
   margin-top: 20px;
+  background: #222326;
 }
 
 .album-item .album-image{
